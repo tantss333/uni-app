@@ -15,7 +15,8 @@
 		
 		onLoad(event) {
 			
-			this.query = event.query
+			this.query = event.cid
+			console.log(event)
 		}
 	}
 </script>
