@@ -1,5 +1,10 @@
 <template>
 	<view>
+		
+		<view class="search-box">
+			<my-search @myclick="gotoSearch"></my-search>
+		</view>
+		
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" circular>
 			<swiper-item v-for="(item, index) in swiperList" :key="index">
 				<navigator class="swiper-item" :url="'/subpkg/goods_detail/goods_detail?goods_id=' + item.goods_id">
@@ -67,8 +72,8 @@
 				if (res.meta.status !== 200) {return uni.showMsg()
 				} else{
 					this.swiperList=res.message
-					uni.showMsg("加载成功")
-					// console.log(this.swiperList)
+			
+					console.log(this.swiperList)
 					}
 			},
 			
@@ -78,8 +83,8 @@
 				if (res.meta.status !== 200) {return uni.showMsg()
 				} else{
 					this.navList=res.message
-					uni.showMsg("加载成功")
-					// console.log(this.navList)
+					// uni.showMsg("加载成功")
+					console.log(this.navList)
 					}
 			},
 			
@@ -97,7 +102,7 @@
 						})
 					});
 					this.floorList=res.message
-					uni.showMsg("加载成功")
+					// uni.showMsg("加载成功")
 					
 					}
 			},
@@ -110,6 +115,11 @@
 				}) : console.log(item.name)
 				
 				
+			},
+			gotoSearch(){
+				uni.navigateTo({
+					url:'/subpkg/search/search'
+				})
 			}
 		}
 	}
@@ -164,6 +174,13 @@ swiper {
 
 .floor-item {
 	// margin: 15px 0;
+}
+
+.search-box {
+	position: sticky;
+	top:0;
+	z-index: 999;
+	
 }
 
 

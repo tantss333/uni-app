@@ -5,16 +5,16 @@ uni.$http = $http
 // 配置请求根路径
 $http.baseUrl = 'https://api-hmugo-web.itheima.net'
 
-$http.beforeRequest = function(options){
-  uni.showLoading({
-    title:'数据加载中...'
-  });
-}
+// $http.beforeRequest = function(options){
+//   uni.showLoading({
+//     title:'数据加载中...'
+//   });
+// }
 
-// 响应拦截器
-$http.afterRequest = function(){
-  uni.hideLoading();
-}
+// // 响应拦截器
+// $http.afterRequest = function(){
+//   uni.hideLoading();
+// }
 
 //封装弹框的方法
 uni.showMsg = function(title="数据请求失败", duration=1500){
