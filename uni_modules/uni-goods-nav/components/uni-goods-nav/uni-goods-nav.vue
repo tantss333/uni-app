@@ -55,7 +55,8 @@
 						text: t("uni-goods-nav.options.shop"),
 					}, {
 						icon: 'cart',
-						text: t("uni-goods-nav.options.cart")
+						text: t("uni-goods-nav.options.cart"),
+						info:2
 					}]
 				}
 			},
@@ -86,11 +87,14 @@
 		},
 		methods: {
 			onClick(index, item) {
+				// console.log(item)
 				this.$emit('click', {
 					index,
 					content: item,
 				})
 			},
+			
+			
 			buttonClick(index, item) {
 				if (uni.report && this.stat) {
 					uni.report(item.text, item.text)

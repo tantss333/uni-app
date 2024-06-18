@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="goods-detail-container">
 		<view class="search-box">
 			<uni-search-bar @input="input" :radius="100" cancelButton="none" placeholder="please input"></uni-search-bar>
 			
@@ -174,6 +174,10 @@
 			padding: 5px 10px;
 		}
 	
+	}
+	
+	.goods-detail-container {
+		padding-bottom: 50px;
 	}
 
 </style>
