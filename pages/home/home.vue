@@ -49,7 +49,17 @@
 </template>
 
 <script>
+	
+	import yya from '@/mixins/useBadge.js'
+	
+	
 	export default {
+		// mixins:[hha],
+		setup(){
+			const { x, total, setBadge} = yya()
+			return {x, total, setBadge}
+		},
+		
 		data() {
 			return {
 				swiperList:[],
@@ -58,7 +68,12 @@
 			};
 		},
 		
+		onShow() {
+			this.setBadge()
+		},
+		
 		onLoad() {
+			this.setBadge()
 			this.getSwiperList();
 			this.getNavList();
 			this.getFloorList()

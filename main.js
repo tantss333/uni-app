@@ -30,12 +30,9 @@ uni.showMsg = function(title="数据请求失败", duration=1500){
 // #ifndef VUE3
 import Vue from 'vue'
 import App from './App'
-//导入网络请求的包
+
 // 引入$http请求对象
 // 请求导入即可
-
-
-
 
 
 Vue.config.productionTip = false
@@ -51,8 +48,13 @@ app.$mount()
 // #ifdef VUE3
 import { createSSRApp } from 'vue'
 import App from './App.vue'
+import store from './store/store.js'
+import Vuex from "vuex"
+
+
 export function createApp() {
   const app = createSSRApp(App)
+  app.use(store)
   return {
     app
   }

@@ -19,7 +19,7 @@
 			</view>
 			<view :class="{'uni-tab__right':fill}" class="flex uni-tab__cart-sub-right ">
 				<view v-for="(item,index) in buttonGroup" :key="index" :style="{background:item.backgroundColor,color:item.color}"
-				 class="flex uni-tab__cart-button-right" @click="buttonClick(index,item)"><text :style="{color:item.color}" class="uni-tab__cart-button-right-text">{{ item.text }}</text></view>
+				 class="flex uni-tab__cart-button-right" @click="buttonClick(index,item, options)"><text :style="{color:item.color}" class="uni-tab__cart-button-right-text">{{ item.text }}</text></view>
 			</view>
 		</view>
 	</view>
@@ -56,7 +56,6 @@
 					}, {
 						icon: 'cart',
 						text: t("uni-goods-nav.options.cart"),
-						info:2
 					}]
 				}
 			},
@@ -87,21 +86,23 @@
 		},
 		methods: {
 			onClick(index, item) {
-				// console.log(item)
+				
 				this.$emit('click', {
 					index,
 					content: item,
-				})
+				},
+				
+				)
 			},
 			
-			
-			buttonClick(index, item) {
+			buttonClick(index, item, options) {
 				if (uni.report && this.stat) {
 					uni.report(item.text, item.text)
 				}
 				this.$emit('buttonClick', {
 					index,
-					content: item
+					content: item,
+					options:options
 				})
 			}
 		}

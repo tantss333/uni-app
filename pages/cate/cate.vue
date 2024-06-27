@@ -32,7 +32,20 @@
 </template>
 
 <script>
+	
+	import useBadge from '@/mixins/useBadge.js'
+	
 	export default {
+		
+		setup(){
+			const {total,
+				checkCount,
+				setBadge,updateBadge} = useBadge()
+			return {total,
+				checkCount,
+				setBadge,updateBadge}
+		},
+		
 		data() {
 			return {
 				wh:0,
@@ -44,8 +57,11 @@
 			};
 		},
 		
+		onShow() {
+			this.setBadge()
+		},
+		
 		onLoad() {
-			// this.getNumber(6)
 			const sysInfo = uni.getSystemInfoSync()
 			this.wh = sysInfo.windowHeight
 			this.getCateList()
