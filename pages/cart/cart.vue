@@ -54,14 +54,12 @@
 			const {
 				total,
 				checkCount,
-				setBadge,
-				updateBadge
+				setBadge
 			} = yya()
 			return {
 				total,
 				checkCount,
-				setBadge,
-				updateBadge
+				setBadge
 			}
 		},
 

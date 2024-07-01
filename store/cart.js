@@ -31,7 +31,6 @@ const cart = {
 				findResult.goods_state = goods.goods_state
 				
 			};
-
 			this.commit('cart/savetoStorage')
 		},
 
@@ -88,7 +87,6 @@ const cart = {
 			(t, l) => t + l.goods_count*l.goods_price, 0
 			).toFixed(2)
 			
-			console.log(totalAmount)
 			return totalAmount
 		}
 

@@ -54,23 +54,37 @@
 		mapGetters
 	} from 'vuex';
 	
-	
+	import yya from '@/mixins/useBadge.js'
 	
 	export default {
 		
+		// setup() {
+		// 	const {
+		// 		total,
+		// 		checkCount,
+		// 		setBadge
+		// 	} = yya()
+		// 	return {
+		// 		total,
+		// 		checkCount,
+		// 		setBadge
+		// 	}
+		// },
+		
 		watch: {
-
+			
 			total: {
+				
 				handler(newValue) {
-
+					
 					const findResult = this.options.find((x) => x.text === "购物车")
 					if (!findResult) {
 						uni.showMsg('无法添加购物车')
 						return
 					}
-
+					
 					findResult.info = newValue
-					uni.setStorageSync("historyResults", this.historyResults)
+		 
 				},
 				immediate:true
 

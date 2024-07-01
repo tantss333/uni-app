@@ -87,8 +87,6 @@
 				if (res.meta.status !== 200) {return uni.showMsg()
 				} else{
 					this.swiperList=res.message
-			
-					console.log(this.swiperList)
 					}
 			},
 			
@@ -99,7 +97,6 @@
 				} else{
 					this.navList=res.message
 					// uni.showMsg("加载成功")
-					console.log(this.navList)
 					}
 			},
 			

@@ -4,7 +4,10 @@ const user = {
 
 	// 数据节点
 	state: () => ({
-		address: JSON.parse(uni.getStorageSync('address') || '{}')
+		address: JSON.parse(uni.getStorageSync('address') || '{}'),
+		token:uni.getStorageSync('token')||'',
+		userInfo: JSON.parse(uni.getStorageSync('userinfo')||'{}'),
+		redirectUrl: null
 	}),
 
 
@@ -22,6 +25,35 @@ const user = {
 
 			uni.setStorageSync('address', JSON.stringify(state.address))
 			console.log('地址存储本地成功')
+		},
+		
+		
+		updateUserInfo(state, userinfo){
+			state.userInfo = userinfo;
+			
+			this.commit('user/saveUserInfoToStorage')
+		},
+		
+		saveUserInfoToStorage(state){
+			uni.setStorageSync('userinfo', JSON.stringify(state.userInfo))
+		},
+		
+		updateToken(state, token){
+			state.token = token;
+			this.commit('user/saveToToken')
+		},
+		
+		updateRedirectUrl(state, url){
+			state.redirectUrl = url;
+			this.commit('user/saveRedirectUrl')
+		},
+		
+		saveRedirectUrl(state){
+			uni.setStorageSync('redirectUrl', state.redirectUrl)
+		},
+		
+		saveToToken(state){
+			uni.setStorageSync('token',state.token)
 		}
 	},
 

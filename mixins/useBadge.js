@@ -35,29 +35,13 @@ export default function() {
 			})
 		}
 
-	}
-	
-	
-	function updateBadge() {
-	
-		if (this.checkCount === 0) {
-			uni.removeTabBarBadge({
-				index: 2
-			})
-		} else {
-			uni.setTabBarBadge({
-				index: 2,
-				text: this.checkCount + ''
-			})
-		}
-	
-	}
+	};
 
 
 	return {
 		total,
 		checkCount,
-		setBadge,
-		updateBadge
+		setBadge
+		// updateBadge
 	}
 }
